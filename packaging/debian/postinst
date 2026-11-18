@@ -1,0 +1,28 @@
+#!/bin/sh
+set -e
+PKG=ijmond360-portal
+if [ "$1" = "configure" ]; then
+  if ! getent passwd portal >/dev/null; then
+    adduser --system --group --home /var/lib/$PKG --no-create-home --disabled-password portal >/dev/null
+  fi
+  install -d -o portal -g portal -m 0750 /var/lib/$PKG /var/lib/$PKG/updates /etc/$PKG
+  if [ ! -f /etc/$PKG/env ]; then
+    cat > /etc/$PKG/env <<ENV
+# Environment for $PKG
+#PORTAL_PORT=8080
+#PORTAL_HOST=0.0.0.0
+# Account created on first start when no users exist ("off" = setup page instead).
+#PORTAL_DEFAULT_ADMIN=admin:admin
+ENV
+    chown portal:portal /etc/$PKG/env
+  fi
+  visudo -cf /etc/sudoers.d/$PKG >/dev/null
+  systemctl daemon-reload
+  systemctl enable $PKG.service >/dev/null 2>&1 || true
+  systemctl restart $PKG.service
+  rm -f /var/lib/$PKG/updates/*.deb 2>/dev/null || true
+  IP=$(hostname -I 2>/dev/null | awk '{print $1}')
+  echo "IJmond 360 Portal is running: http://${IP:-localhost}:8080"
+  echo "First login: admin / admin (change the password after signing in)"
+fi
+exit 0

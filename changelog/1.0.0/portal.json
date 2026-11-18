@@ -1,0 +1,11 @@
+{
+  "apps": ["portal"],
+  "changes": [
+    { "kind": "added", "en": "Start page with a greeting, search, notices, your favourites and mail and calendar from Microsoft 365.", "nl": "Startpagina met een begroeting, zoeken, mededelingen, je favorieten en mail en agenda uit Microsoft 365." },
+    { "kind": "added", "en": "Tabs per workplace (for example Television and Radio) with sections and large buttons for every app or link.", "nl": "Tabs per werkplek (bijvoorbeeld Televisie en Radio) met onderdelen en grote knoppen voor elke app of link." },
+    { "kind": "added", "en": "A status light on every button that shows whether the app can be reached.", "nl": "Een statuslampje op elke knop dat laat zien of de app bereikbaar is." },
+    { "kind": "added", "en": "Admin pages for tabs, buttons, notices, Microsoft groups and the portal settings, with a live preview of each button.", "nl": "Beheerpagina's voor tabs, knoppen, mededelingen, Microsoft-groepen en de portalinstellingen, met een voorbeeld van elke knop terwijl je typt." },
+    { "kind": "added", "en": "Now on TV: the current and next programme from the TV Station Manager programme guide, with the live stream.", "nl": "Nu op TV: het huidige en volgende programma uit de programmagids van TV Station Manager, met de livestream." },
+    { "kind": "added", "en": "Sign in with Microsoft for every account in the IJmond 360 tenant.", "nl": "Inloggen met Microsoft voor elk account in de IJmond 360-omgeving." }
+  ]
+}
